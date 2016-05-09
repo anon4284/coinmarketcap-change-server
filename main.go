@@ -23,7 +23,7 @@ func main() {
 
 	page, _ = agoutiDriver.NewPage(agouti.Browser("firefox"))
 	storage = getChange("trumpcoin")
-	gocron.Every(10).Minute().Do(task)
+	gocron.Every(10).Minutes().Do(task)
 	gocron.Start()
 	fmt.Println(storage)
 
