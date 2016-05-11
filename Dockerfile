@@ -13,6 +13,6 @@ RUN ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/loca
 
 RUN phantomjs --version
 
-COPY main /
+COPY app /
 EXPOSE 5000
-CMD ["./main"]
+CMD ["./app"]
