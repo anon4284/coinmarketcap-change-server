@@ -42,6 +42,7 @@ func (c *Coin) update() {
 			c.Change = change
 		}
 	}
+	CoinStorage[c.Code] = *c
 }
 
 func (c *Coin) timer() {
