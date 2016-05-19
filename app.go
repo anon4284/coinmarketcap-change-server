@@ -1,12 +1,8 @@
 package main
 
-import (
-	"projects/webScraper/logic"
-	"projects/webScraper/scraper"
-)
+import "projects/webScraper/logic"
 
 func main() {
-	scraper.InitWebDriver()
 	logic.InitCoins()
 
 	logic.NewCoin("trumpcoin", "trump")

@@ -1,46 +1,27 @@
 package scraper
 
 import (
-	"fmt"
 	"projects/webScraper/util"
 
-	"github.com/sclevine/agouti"
+	"github.com/PuerkitoBio/goquery"
 )
 
-var agoutiDriver *agouti.WebDriver
-var page *agouti.Page
+//PREFIX for webscraping
+const PREFIX = "https://coinmarketcap.com/currencies/"
 
-func InitWebDriver() {
-
-	agoutiDriver = agouti.PhantomJS()
-	agoutiDriver.Start()
-
-	page, _ = agoutiDriver.NewPage(agouti.Browser("firefox"))
-
-}
-
+//ScrapeChange get change through webscraping
 func ScrapeChange(coin string) (bool, string) {
-	fmt.Println("Scrape job")
-	page.Navigate("http://coinmarketcap.com/currencies/" + coin)
+	url := PREFIX + coin
 
-	change := page.FirstByClass("negative_change")
+	doc, _ := goquery.NewDocument(url)
+	positive := doc.Find(".positive_change")
+	negative := doc.Find(".negative_change")
 
-	isFound, err := change.Visible()
-	util.CheckErr(err)
-
-	if isFound {
-		txt, _ := change.Text()
-		return true, util.FormatString(txt)
+	if positive.Length() > 0 {
+		return true, util.FormatString(positive.First().Text())
 	}
-	change = page.FirstByClass("positive_change")
-	isFound, err = change.Visible()
-	util.CheckErr(err)
-	if isFound {
-		txt, err := change.Text()
-		util.CheckErr(err)
-		return true, util.FormatString(txt)
+	if negative.Length() > 0 {
+		return true, util.FormatString(negative.First().Text())
 	}
-	page.Destroy()
-	agoutiDriver.Stop()
-	return false, "currency not found"
+	return false, "Currency not found"
 }

@@ -51,7 +51,7 @@ func (c *Coin) timer() {
 	if c.API {
 		interval = 2 * time.Minute
 	} else {
-		interval = 10 * time.Minute
+		interval = 2 * time.Minute
 	}
 
 	c.Ticker = time.NewTicker(interval)
