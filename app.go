@@ -12,6 +12,7 @@ func main() {
 	logic.NewCoin("primechain", "prime")
 	logic.NewCoin("uncoin", "unc")
 	logic.NewCoin("hitcoin", "htc")
+	logic.NewCoin("enigma", "xng")
 
 	routes()
 }
