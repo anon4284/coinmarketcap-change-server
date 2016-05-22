@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"net/http"
-	"projects/webScraper/util"
+	"projects/coinmarketcap-change-server/util"
 	"strings"
 )
 

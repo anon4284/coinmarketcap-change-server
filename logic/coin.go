@@ -2,8 +2,8 @@ package logic
 
 import (
 	"fmt"
-	"projects/webScraper/api"
-	"projects/webScraper/scraper"
+	"projects/coinmarketcap-change-server/api"
+	"projects/coinmarketcap-change-server/scraper"
 	"time"
 )
 

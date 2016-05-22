@@ -2,7 +2,7 @@ package main
 
 import (
 	"net/http"
-	"projects/webScraper/logic"
+	"projects/coinmarketcap-change-server/logic"
 
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"

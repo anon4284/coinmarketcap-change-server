@@ -1,7 +1,7 @@
 package scraper
 
 import (
-	"projects/webScraper/util"
+	"projects/coinmarketcap-change-server/util"
 
 	"github.com/PuerkitoBio/goquery"
 )

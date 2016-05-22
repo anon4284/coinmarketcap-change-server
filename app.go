@@ -1,6 +1,6 @@
 package main
 
-import "projects/webScraper/logic"
+import "projects/coinmarketcap-change-server/logic"
 
 func main() {
 	logic.InitCoins()
